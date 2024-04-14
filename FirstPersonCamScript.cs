@@ -48,6 +48,18 @@ public class FirstPersonCamScript : MonoBehaviour
         movement.y = 0f;
 
         transform.position += movement * speed * Time.deltaTime;
+        if (transform.position.z > 480) {
+            transform.position = new Vector3(transform.position.x, transform.position.y,480f); 
+        }
+        if (transform.position.z < 385) {
+            transform.position = new Vector3(transform.position.x, transform.position.y,385f); 
+        }
+        if (transform.position.x < 255) {
+            transform.position = new Vector3(255f, transform.position.y,transform.position.z);  
+        }
+        if (transform.position.x > 380) {
+            transform.position = new Vector3(380f, transform.position.y,transform.position.z);  
+        }
     }
     public Transform cameraTransform;
     public void TranslateCamera() {
